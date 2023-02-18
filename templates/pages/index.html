@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>{{ pagename }}</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p>Добро пожаловать, уважаемый пользователь!
+                <p>На этом сайте ты сможешь сохранить свои заготовки кода на различных языках программирования, <br>
+                    а также делиться ими с другими пользователями...
+                <hr>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-4 offset-4">
+                <a href="{% url 'add_snippets_page' %}">Добавить сниппет</a>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <hr>
+                <h4>Найти сниппет по номеру</h4>
+                <form action='' id="view_snippet_form">
+                    <div class="form-group row">
+                        <label for="snippet_id" class="col-sm-2 col-form-label col-form-label-lg">Номер:</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control form-control-lg" id="snippet_id"
+                                   placeholder="введите число">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="submit" class="form-control form-control-lg btn btn-info" value="Найти">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'images/logo.png' %}" width="32" height="32" alt="">
+                <a class="navbar-brand" href="{% url 'index_page' %}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="form-inline"><a class="btn btn-outline-secondary" href="{% url 'add_snippets_page' %}">Добавить сниппет</a></li>
+                    <li class="form-inline"><a class="btn btn-outline-info" href="{% url 'snippets_page' %}">Посмотреть
+                        сниппеты</a></li>
+                </ul>
+            </div>
+         </div>
+    </nav>
+</header>
+{% endblock %}
